@@ -64,6 +64,54 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btPlus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="+"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btMinus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="-"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btTimes"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="*"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btDivide"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="/"
+                style="?android:attr/borderlessButtonStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
                 android:id="@+id/btSeven"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
@@ -169,6 +217,8 @@
                 android:text="3"
                 style="?android:attr/borderlessButtonStyle" />
 
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -179,13 +229,33 @@
 
             <Button
                 android:id="@+id/btZero"
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="80dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 style="?android:attr/borderlessButtonStyle"
                 android:text="0" />
+
+            <Button
+                android:id="@+id/btComma"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text=","
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btEquals"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="="
+                style="?android:attr/borderlessButtonStyle" />
 
         </LinearLayout>
 

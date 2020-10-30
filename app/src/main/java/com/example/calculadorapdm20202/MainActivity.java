@@ -1,44 +1,39 @@
 package com.example.calculadorapdm20202;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Optional;
+import java.util.regex.Pattern;
 
+import util.Utils;
 public class MainActivity extends AppCompatActivity {
 
     private void updateTxtResult(Button button) {
         final TextView txtResult = (TextView) findViewById(R.id.txtResult);
         String btText = (String) button.getText();
-        System.out.println(txtResult.getText());
-        if (txtResult.getText().toString().equals("0")) {
+        String regexOperators = "[+-/*//]";
+        String regexNumbers = "^[0-9]";
+
+        if (txtResult.getText().toString().equals("0") && !Pattern.matches(regexOperators, btText)) {
             txtResult.setText("");
         }
 
-        if ("1".equals(btText)) {
-            txtResult.append("1");
-        } else if ("2".equals(btText)) {
-            txtResult.append("2");
-        } else if ("3".equals(btText)) {
-            txtResult.append("3");
-        } else if ("4".equals(btText)) {
-            txtResult.append("4");
-        } else if ("5".equals(btText)) {
-            txtResult.append("5");
-        } else if ("6".equals(btText)) {
-            txtResult.append("6");
-        } else if ("7".equals(btText)) {
-            txtResult.append("7");
-        } else if ("8".equals(btText)) {
-            txtResult.append("8");
-        } else if ("9".equals(btText)) {
-            txtResult.append("9");
-        } else if ("0".equals(btText)) {
-            txtResult.append("0");
+        if (Pattern.matches(regexNumbers, btText)) {
+            txtResult.append(btText);
+        } else if (Pattern.matches(regexOperators, btText)) {
+            int length = btText.equals("-") ? 1 : 0;
+            if (txtResult.getText().toString().length() > 0 && !Pattern.matches(regexOperators, txtResult.getText().toString().substring(txtResult.getText().toString().length() - 1))) {
+                txtResult.append(btText);
+            } else if (!txtResult.getText().toString().substring(txtResult.getText().toString().length() - 1).equals(btText) ) {
+                txtResult.setText(txtResult.getText().toString().substring(0, txtResult.getText().toString().length()-1).concat(btText));
+            }
+        } else if ("=".equals(btText)) {
+        } else if (",".equals(btText)) {
+            txtResult.setText(".");
         } else if ("Limpar".equals(btText)) {
             txtResult.setText("0");
         } else if ("Del".equals(btText)) {
@@ -49,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                             .orElse("0"));
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,77 +62,33 @@ public class MainActivity extends AppCompatActivity {
         final Button btZero = findViewById(R.id.btZero);
         final Button btClear = findViewById(R.id.btClear);
         final Button btDel = findViewById(R.id.btDel);
+        final Button btPlus = findViewById(R.id.btPlus);
+        final Button btMinus = findViewById(R.id.btMinus);
+        final Button btTimes = findViewById(R.id.btTimes);
+        final Button btDivide = findViewById(R.id.btDivide);
+        final Button btComma = findViewById(R.id.btComma);
+        final Button btEquals = findViewById(R.id.btEquals);
 
-        btOne.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btOne);
-            }
-        });
-
-        btTwo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btTwo);
-            }
-        });
-
-        btThree.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btThree);
-            }
-        });
-
-        btFour.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btFour);
-            }
-        });
-
-        btFive.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btFive);
-            }
-        });
-
-        btSix.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btSix);
-            }
-        });
-
-        btSeven.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btSeven);
-            }
-        });
-
-        btEight.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btEight);
-            }
-        });
-
-        btNine.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btNine);
-            }
-        });
-
-        btZero.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btZero);
-            }
-        });
-
-        btClear.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btClear);
-            }
-        });
-
-        btDel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                updateTxtResult(btDel);
-            }
-        });
+        btOne.setOnClickListener(v -> updateTxtResult(btOne));
+        btTwo.setOnClickListener(v -> updateTxtResult(btTwo));
+        btThree.setOnClickListener(v -> updateTxtResult(btThree));
+        btFour.setOnClickListener(v -> updateTxtResult(btFour));
+        btFive.setOnClickListener(v -> updateTxtResult(btFive));
+        btSix.setOnClickListener(v -> updateTxtResult(btSix));
+        btSeven.setOnClickListener(v -> updateTxtResult(btSeven));
+        btEight.setOnClickListener(v -> updateTxtResult(btEight));
+        btNine.setOnClickListener(v -> updateTxtResult(btNine));
+        btZero.setOnClickListener(v -> updateTxtResult(btZero));
+        btClear.setOnClickListener(v -> updateTxtResult(btClear));
+        btDel.setOnClickListener(v -> updateTxtResult(btDel));
+        btPlus.setOnClickListener(v -> updateTxtResult(btPlus));
+        btMinus.setOnClickListener(v -> updateTxtResult(btMinus));
+        btTimes.setOnClickListener(v -> updateTxtResult(btTimes));
+        btDivide.setOnClickListener(v -> updateTxtResult(btDivide));
+        btComma.setOnClickListener(v -> updateTxtResult(btComma));
+        btEquals.setOnClickListener(v -> updateTxtResult(btEquals));
     }
+
+
+
 }
