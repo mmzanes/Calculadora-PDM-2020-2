@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 txtResult.setText(txtResult.getText().toString().substring(0, txtResult.getText().toString().length()-1).concat(btText));
             }
         } else if ("=".equals(btText)) {
+            txtResult.setText(Utils.calculator(txtResult.getText().toString()));
         } else if (",".equals(btText)) {
             txtResult.setText(".");
         } else if ("Limpar".equals(btText)) {
