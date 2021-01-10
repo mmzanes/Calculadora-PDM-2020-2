@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (!txtResult.getText().toString().substring(txtResult.getText().toString().length() - 1).equals(btText) ) {
                 txtResult.setText(txtResult.getText().toString().substring(0, txtResult.getText().toString().length()-1).concat(btText));
             }
+        } else if ("e".equals(btText)) {
+            txtResult.append("^");
+        } else if ("√".equals(btText)) {
+            txtResult.setText(Utils.sqrt(txtResult.getText().toString()));
         } else if ("=".equals(btText)) {
             txtResult.setText(Utils.calculator(txtResult.getText().toString()));
         } else if (",".equals(btText)) {
@@ -69,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         final Button btDivide = findViewById(R.id.btDivide);
         final Button btComma = findViewById(R.id.btComma);
         final Button btEquals = findViewById(R.id.btEquals);
+        final Button btSqrt = findViewById(R.id.btSqrt);
+        final Button btExp = findViewById(R.id.btExp);
 
         btOne.setOnClickListener(v -> updateTxtResult(btOne));
         btTwo.setOnClickListener(v -> updateTxtResult(btTwo));
@@ -88,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
         btDivide.setOnClickListener(v -> updateTxtResult(btDivide));
         btComma.setOnClickListener(v -> updateTxtResult(btComma));
         btEquals.setOnClickListener(v -> updateTxtResult(btEquals));
+        btSqrt.setOnClickListener(v -> updateTxtResult(btSqrt));
+        btExp.setOnClickListener(v -> updateTxtResult(btExp));
+
     }
 
 

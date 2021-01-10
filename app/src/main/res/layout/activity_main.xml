@@ -103,6 +103,26 @@
                 android:text="/"
                 style="?android:attr/borderlessButtonStyle" />
 
+            <Button
+                android:id="@+id/btSqrt"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="√"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btExp"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="e"
+                style="?android:attr/borderlessButtonStyle" />
+
         </LinearLayout>
 
         <LinearLayout
